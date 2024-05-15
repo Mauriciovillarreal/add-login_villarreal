@@ -1,0 +1,27 @@
+<main>
+    <h1>Products</h1>
+    <ul id="products-list">
+        {{#each products}}
+        <li>
+            <h2>{{this.brands}}</h2>
+            <h3>{{this.name}}</h3>
+            <div>{{this._id}}</div>
+            <div>${{this.price}}</div>
+            <button data-product-id="{{this._id}}">AGREGAR AL CARRITO</button>
+        </li>
+        {{/each}}
+    </ul>
+</main>
+<div class="pageProducts">
+    {{#if hasPrevPage}}
+    <a href="/products?numPage={{prevPage}}">ANTERIOR</a>
+    {{/if}}
+    <label>PAGINA {{page}}</label>
+    {{#if hasNextPage}}
+    <a href="/products?numPage={{nextPage}}">SIGUIENTE</a>
+    {{/if}}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/products.js"></script>

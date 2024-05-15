@@ -1,0 +1,104 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    text-decoration: none,
+}
+
+nav {
+    background-color: rgb(0, 0, 0);
+}
+
+h2 {
+    text-transform: uppercase;
+}
+
+h3 {
+    text-transform: uppercase;
+}
+h2 {
+    text-transform: uppercase;
+}
+.navBar {
+    display: inline-block;
+    margin: 20px;
+    font-size: 18px;
+    
+}
+
+.toastify {
+    padding: 0px 5px;
+    background-color: rgb(0, 255, 0);
+    position:fixed;
+    right: 50px;
+}
+
+.navBar a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+}
+
+.pageProducts {
+    background-color: black;
+    text-align: center;
+    color: white;
+}
+.pageProducts a {
+    text-decoration: none;
+    color: white;
+    margin: 200px;
+}
+
+li {
+    list-style-type: none;
+}
+
+main {
+    padding: 20px;
+    font-family: monospace,
+}
+
+h1 {
+    color: #001b92;
+    font-family: monospace,
+}
+
+#products-list {
+    display: grid;
+    grid-template-columns: 25% 25% 25% 25%;
+
+}
+
+#products-list li {
+    border: 1px solid black;
+    text-align: center;
+    list-style: none;
+    padding-top: 120px;
+    padding-bottom: 120px;
+    margin: 35px;
+}
+
+.main {
+    display: grid;
+    grid-template-columns: 70% 30%;
+
+}
+
+
+
+
+#messages {
+    border: 1px solid rgb(0, 0, 0);
+    height: 200px;
+    background-color: rgb(251, 255, 226);
+}
+
+#m {
+    background-color: rgb(251, 255, 226);
+    height: 70px;
+}
+
+#email {
+    background-color: rgb(251, 255, 226);
+    margin-bottom: 10px;
+}
