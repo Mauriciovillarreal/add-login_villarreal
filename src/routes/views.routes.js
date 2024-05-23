@@ -9,7 +9,7 @@ const productsService = new ProductsManagerMongo()
 const cartsService = new CartsManagerMongo()
 
 
-router.get('/', async (req,res) => {
+router.get('/', async (req, res) => {
     res.render('home', {
         styles: 'homeStyles.css'
     })
@@ -17,9 +17,18 @@ router.get('/', async (req,res) => {
 
 router.get('/products', async (req, res) => {
     try {
+        let user = null
+        if (req.session.user) {
+            user = {
+                name: req.session.user.first_name,
+                lastname: req.session.user.last_name,
+                isAdmin: req.session.user.admin
+            }
+        }
         const { numPage, limit } = req.query
         const { docs, page, hasPrevPage, hasNextPage, prevPage, nextPage } = await productsService.getProducts({ limit, numPage },)
         res.render('products', {
+            user,
             products: docs,
             page,
             hasPrevPage,
@@ -74,6 +83,18 @@ router.get('/cart', async (req, res) => {
         console.error("Error occurred while fetching carts:", error)
         res.status(500).send("Internal server error: " + error.message)
     }
+})
+
+router.get('/login', async (req, res) => {
+    res.render('login', {
+        styles: 'homeStyles.css'
+    })
+})
+
+router.get('/register', async (req, res) => {
+    res.render('register', {
+        styles: 'homeStyles.css'
+    })
 })
 
 module.exports = router

@@ -2,13 +2,16 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    text-decoration: none,
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
 }
 
 nav {
     background-color: rgb(0, 0, 0);
 }
-
+h1 {
+    text-transform: uppercase;
+}
 h2 {
     text-transform: uppercase;
 }
@@ -55,18 +58,22 @@ li {
 
 main {
     padding: 20px;
-    font-family: monospace,
+    font-family: 'Montserrat', sans-serif;
 }
 
+.users {
+    margin-top: 2px;
+    padding: 20px;
+}
 h1 {
     color: #001b92;
-    font-family: monospace,
+    font-family: 'Montserrat', sans-serif;
 }
 
 #products-list {
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-
+    padding-left: 0 !important;
 }
 
 #products-list li {
@@ -78,10 +85,13 @@ h1 {
     margin: 35px;
 }
 
-.main {
+
+
+
+
+.realTime {
     display: grid;
     grid-template-columns: 70% 30%;
-
 }
 
 
