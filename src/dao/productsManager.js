@@ -70,12 +70,12 @@
 //     delateProducts = async id => {
 //         try {
 //             const productos = await this.getProducts()
-//             const value = productos.findIndex(product => product.id === id);
+//             const value = productos.findIndex(product => product.id === id)
 //             if (value !== -1) {
 //                 productos.splice(value, 1)
 //                 await fs.promises.writeFile(this.path, JSON.stringify(productos, null, '\t'), 'utf-8')
 //             } else {
-//                 console.log(`No se encontró ningún producto con id ${id}.`);
+//                 console.log(`No se encontró ningún producto con id ${id}.`)
 //             }
 //             console.log(productos)
 

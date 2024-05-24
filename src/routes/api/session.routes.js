@@ -10,7 +10,6 @@ sessionsRouter.post('/login', async (req, res) => {
     if (!email || !password)
         return res.status(401).send({ status: 'error', error: 'se deben completar todos los campos' })
     if (email === 'adminCoder@coder.com' && password === 'adminCod3r123') {
-        // Establecer la sesión del usuario admin
         req.session.user = {
             first_name: 'Admin',
             last_name: 'Coder',
@@ -23,11 +22,12 @@ sessionsRouter.post('/login', async (req, res) => {
     if (!result)
         return res.status(401).send({ status: 'error', error: 'no encontró el usuario' })
     req.session.user = {
+        email: result.email,
         first_name: result.first_name,
         last_name: result.last_name,
-        email,
         admin: result.role === 'admin'
     }
+    console.log(result)
     res.redirect("/products")
 })
 

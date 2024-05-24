@@ -14,6 +14,7 @@ socket.on('update-products', (products) => {
     productsList.innerHTML = ''
     products.forEach((product) => {
         const li = document.createElement('li')
+        li.classList.add('col') 
         const titleDiv = document.createElement('h2')
         titleDiv.textContent = product.name
         li.appendChild(titleDiv)

@@ -32,7 +32,7 @@ router.put('/:pid', async (req, res) => {
         price: price || undefined,
         stock: stock || undefined,
         category: category || undefined,
-    }
+    };
     const result = await productsService.updateProductById(pid, updateData, res)
     res.json(result)
 })

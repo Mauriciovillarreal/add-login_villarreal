@@ -22,7 +22,8 @@ router.get('/products', async (req, res) => {
             user = {
                 name: req.session.user.first_name,
                 lastname: req.session.user.last_name,
-                isAdmin: req.session.user.admin
+                isAdmin: req.session.user.admin,
+                email: req.session.user.email
             }
         }
         const { numPage, limit } = req.query
@@ -45,8 +46,18 @@ router.get('/products', async (req, res) => {
 
 router.get('/realtimeproducts', async (req, res) => {
     try {
+        let user = null
+        if (req.session.user) {
+            user = {
+                name: req.session.user.first_name,
+                lastname: req.session.user.last_name,
+                isAdmin: req.session.user.admin,
+                email: req.session.user.email
+            }
+        }
         const products = await productsService.getProducts({})
         res.render('realTimeProducts', {
+            user,
             products,
             styles: 'homeStyles.css'
         })
@@ -58,8 +69,18 @@ router.get('/realtimeproducts', async (req, res) => {
 
 router.get('/chat', async (req, res) => {
     try {
+        let user = null
+        if (req.session.user) {
+            user = {
+                name: req.session.user.first_name,
+                lastname: req.session.user.last_name,
+                isAdmin: req.session.user.admin,
+                email: req.session.user.email
+            }
+        }
         const messages = await chatsModel.find({})
         res.render('chat', {
+            user,
             messages,
             styles: 'homeStyles.css'
         })

@@ -6,21 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const messages = document.querySelector('#messages')
   const emailInput = document.querySelector('#email')
 
-  let userEmail = localStorage.getItem('userEmail')
-
   form.addEventListener('submit', (e) => {
     e.preventDefault()
-    if (input.value && (userEmail || emailInput.value)) {
+    if (input.value && emailInput.value) {
       const message = {
-        user: userEmail || emailInput.value,
+        user: emailInput.value,
         message: input.value
       }
       socket.emit('chat message', message)
       input.value = ''
-      if (!userEmail) {
-        localStorage.setItem('userEmail', emailInput.value)
-        emailInput.value = ''
-      }
     }
   })
 
@@ -28,5 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const item = document.createElement('li')
     item.textContent = `${msg.user}: ${msg.message}`
     messages.appendChild(item)
+    messages.scrollTop = messages.scrollHeight
   })
 })
