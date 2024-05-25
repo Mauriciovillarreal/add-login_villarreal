@@ -8,14 +8,7 @@ const router = express.Router()
 const productsService = new ProductsManagerMongo()
 const cartsService = new CartsManagerMongo()
 
-
 router.get('/', async (req, res) => {
-    res.render('home', {
-        styles: 'homeStyles.css'
-    })
-})
-
-router.get('/products', async (req, res) => {
     try {
         let user = null
         if (req.session.user) {

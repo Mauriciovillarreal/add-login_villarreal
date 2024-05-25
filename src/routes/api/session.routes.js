@@ -16,7 +16,7 @@ sessionsRouter.post('/login', async (req, res) => {
             email: 'adminCoder@coder.com',
             admin: true
         }
-        return res.redirect("/products")
+        return res.redirect("/")
     }
     const result = await userService.getUsersBy({ email, password })
     if (!result)
@@ -28,7 +28,7 @@ sessionsRouter.post('/login', async (req, res) => {
         admin: result.role === 'admin'
     }
     console.log(result)
-    res.redirect("/products")
+    res.redirect("/")
 })
 
 

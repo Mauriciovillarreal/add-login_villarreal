@@ -21,15 +21,19 @@
     <nav class="sticky-top container-fluid">
         <div class="row loggin">
             <ul class="navBar col">
-                <li><a href="/products">PRODUCTS</a></li>
+
+                <li><a href="/">PRODUCTS</a></li>
                 <li><a href="/chat">CHAT</a></li>
                 <li><a href="/realtimeproducts">REALTIMEPRODUCTS</a></li>
                 <li><a href="/cart">CART</a></li>
             </ul>
+
+        
+
             <div class="btnUsers col text-end">
                 {{#if user}}
                 <h6>Welcome {{user.name}} {{user.lastname}} </h6>
-                <label type="button" for="menu-toggle" class="menu-icon btn btn-secondary btn-sm">USER</label>
+                <label type="button" for="menu-toggle" class="menu-icon btn btn-secondary btn-sm">USER ▼</label>
                 <input type="checkbox" id="menu-toggle" class="menu-btn">
                 <div class="menu-content text-start">
                     <hr>
@@ -56,7 +60,6 @@
 
             </div>
         </div>
-
 
     </nav>
     {{{body}}}

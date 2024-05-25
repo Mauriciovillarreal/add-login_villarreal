@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 const cart = await response.json()
                 Toastify({
-                    text: 'Producto agregado al carrito',
+                    text: 'was added to cart',
                     duration: 3000,
                     gravity: "top"
                 }).showToast()
