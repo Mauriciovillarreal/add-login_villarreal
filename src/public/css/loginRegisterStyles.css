@@ -1,0 +1,94 @@
+.bg {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login {
+    padding: 20px;
+    width: 100%;
+    max-width: 400px;
+}
+
+.logoDist h1 {
+    font-family: "Jaro", sans-serif;
+    color: rgb(212, 175, 55);
+    margin-bottom: 20px;
+    margin-top: 5px;
+}
+
+.control {
+    width: 100%;
+    padding: 10px;
+    height: 32px;
+    margin-bottom: 20px;
+    border: 1px solid #000000; 
+    border-radius: 5px;
+    background-color: #ffffff; 
+ 
+}
+
+.control:focus {
+    border-color: #000000; 
+    outline: none;
+}
+
+.btnLogin {
+    width: 100%;
+    padding: 5px;
+    background-color: rgb(212, 175, 55);
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btnLogin:hover {
+    background-color: #ffbf00; 
+}
+
+.containerBtnGH a {
+    color: #000000 !important; 
+    text-decoration: none !important;
+}
+.login a {
+    color: #000000 !important; 
+    text-decoration: none !important;
+}
+
+.error {
+    color: #ff6347; /* Texto rojo para errores */
+    margin-top: 10px;
+}
+
+.containerBtnGH {
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    text-decoration: none;
+    margin-top: 18px;
+    text-decoration: none;
+}
+
+.btnGitHub {
+    padding: 10px;
+    border: 1px solid rgb(32, 18, 18);
+    display: flex;
+    justify-content: center !important;
+    align-items: center !important;
+    width: 100%;
+    height: 50px;
+    background-color: #ffffff !important;
+    color: rgb(0, 0, 0) !important;
+    text-decoration: none;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.btnGitHub img {
+    padding: 10px;
+}
+

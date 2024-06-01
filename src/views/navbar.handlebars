@@ -1,0 +1,144 @@
+<header class="sticky-top">
+    <nav class="container-fluid">
+
+        <div id="logo">
+            <h1 class="text-center">4444</h1>
+        </div>
+
+        {{!-- <div class="usersDetail">
+            {{#if user}}
+            <h6>Welcome {{user.name}} </h6>
+            <div class="offcanvas-nav" id="menu-offcanvas">
+                <button class="close-btn" id="menu-close-btn">z</button>
+                <div class="menuUser">
+                    <h5>{{user.name}}</h5>
+                    {{#if user}}
+                    <h4></h4>
+                    <div>Last name: {{user.lastname}} </div>
+                    {{#if user.role}}
+                    <div>Email: {{user.email}} </div>
+                    <div>Role: Admin</div>
+                    {{else}}
+                    <div>Email: {{user.email}} </div>
+                    <div>Role: User</div>
+                    {{/if}}
+                    {{/if}}
+                    <a href="/api/sessions/logout" method="POST"> SIGN OUT
+                    </a>
+                </div>
+            </div>
+
+            <div class="offcanvas-nav" id="cart-offcanvas">
+                <button class="close-btn" id="cart-close-btn">z</button>
+                {{> cart}}
+            </div>
+
+            <div class="main-content">
+                <button class="open-btn userInfo" id="menu-open-btn">
+                    <img src="/img/user.png" width="20px" alt="">
+                </button>
+                <button class="open-btn" id="cart-open-btn">
+                    <img src="/img/cart.png" width="18px" alt="">
+                </button>
+
+            </div>
+            {{else}}
+            <a type="button" href="/login">
+                <img src="/img/user.png" width="20px" alt="">
+                <a href="">
+                    <img src="/img/cart.png" width="18px" alt="">
+                </a>
+            </a>
+            {{/if}}
+        </div>
+        </div> --}}
+        <div class="user">
+            {{#if user}}
+            <h6>Welcome {{user.name}} </h6>
+            <div class="offcanvas-nav" id="menu-offcanvas">
+                <button class="close-btn" id="menu-close-btn">x</button>
+                <dic class="menuInfo">
+                    <h5>{{user.name}}</h5>
+                    {{#if user}}
+                    <h4></h4>
+                    <div>Last name: {{user.lastname}} </div>
+                    {{#if user.role}}
+                    <div>Email: {{user.email}} </div>
+                    <div>Role: Admin</div>
+                    {{else}}
+                    <div>Email: {{user.email}} </div>
+                    <div>Role: User</div>
+                    {{/if}}
+                    {{/if}}
+                </dic>
+                <a href="/api/sessions/logout" class="text-center" method="POST"> SIGN OUT
+                </a>
+            </div>
+
+            <div class="offcanvas-nav" id="cart-offcanvas">
+                <button class="close-btn" id="cart-close-btn">x</button>
+                {{> cart}}
+            </div>
+
+            <div class="main-content">
+                <button class="open-btn" id="menu-open-btn">
+                    <img src="/img/user.png" width="22px" alt="">
+                </button>
+                <button class="open-btn" id="cart-open-btn">
+                    <img src="/img/cart.png" width="18px" alt="">
+                </button>
+            </div>
+            {{else}}
+            <div class="main-content">
+                <button onclick="location.href='http://localhost:8080/login'" class="open-btn">
+                    <img src="/img/user.png" width="22px" alt="">
+                </button>
+                <button onclick="location.href='http://localhost:8080/login'" class="open-btn">
+                    <img src="/img/cart.png" width="18px" alt="">
+                </button>
+            </div>
+
+            {{/if}}
+
+        </div>
+
+
+
+
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="/">PERFUMES</a></li>
+                <li><a href="/chat">CHAT</a></li>
+                <li><a href="/realtimeproducts">REALTIMEPRODUCTS</a></li>
+
+            </ul>
+        </div>
+
+    </nav>
+</header>
+<script>
+    document.getElementById('open-btn').onclick = function () {
+        document.getElementById('offcanvas-nav').style.width = '500px';
+        document.body.style.overflow = 'hidden'; // Prevent background from scrolling
+        document.addEventListener('click', closeNavOnClickOutside);
+    };
+
+    document.getElementById('close-btn').onclick = function () {
+        closeNav();
+    };
+
+    function closeNav() {
+        document.getElementById('offcanvas-nav').style.width = '0';
+        document.body.style.overflow = 'auto'; // Allow background to scroll
+        document.removeEventListener('click', closeNavOnClickOutside);
+    }
+
+    function closeNavOnClickOutside(event) {
+        if (!event.target.closest('.offcanvas-nav') && !event.target.closest('#open-btn')) {
+            closeNav();
+        }
+    }
+
+
+</script>
+<script src="/js/navBar.js"></script>

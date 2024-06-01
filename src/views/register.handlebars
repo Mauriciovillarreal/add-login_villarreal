@@ -1,16 +1,31 @@
-<main class="container">
-    <h1 class="text-center">Register</h1>
-    <form action="/api/session/register" method="POST">
-        <label>Name</label>
-        <input type="text" name="first_name" class="form-control">
-        <label>Last name</label>
-        <input type="text" name="last_name" class="form-control">
-        <label>Email</label>
-        <input type="email" name="email" class="form-control">
-        <label>Age</label>
-        <input type="number" name="age" class="form-control">
-        <label>Password</label>
-        <input type="password" name="password" class="form-control">
-          <button type="submit" class="btn btn-secondary btn-sm bg-black col btnAdd">Register</button>
-    </form>
+<main class="mainLogin">
+    <div class="bg">
+        <div class="login">
+            <form action="/api/sessions/register" method="POST">
+                  <div class="logoDist">
+                    <h1 class="text-center">4444</h1>
+                </div>
+                <p>Create account </p>
+                <label>Name</label>
+                <input type="text" name="first_name" class="control">
+                <label>Last name</label>
+                <input type="text" name="last_name" class="control">
+                <label>Email</label>
+                <input type="email" name="email" class="control">
+                <label>Age</label>
+                <input type="number" name="age" class="control">
+                <label>Password</label>
+                <input type="password" name="password" class="control">
+                <span>
+                    <p>Do you already have an account? <a href="/login">Login</a> </p>
+                </span>
+                <hr>
+                <button type="submit" class="btnLogin">REGISTER</button>
+              {{#if error}}
+                <p class="error">{{error}}</p>
+                {{/if}}
+            </form>
+
+        </div>
+    </div>
 </main>

@@ -10,6 +10,16 @@ router.get('/', async (req, res) => {
     res.send({ status: 'success', data: products })
 })
 
+router.get('/:brands', async (req, res) => {
+    const { brands } = req.params;
+    try {
+        const result = await productsService.getProductsBy({ brands });
+        res.send({ status: 'success', data: result });
+    } catch (error) {
+        res.status(500).send({ status: 'error', message: error.message });
+    }
+});
+
 router.get('/:pid', async (req, res) => {
     const { pid } = req.params
     const result = await productsService.getProductsById(pid, res)

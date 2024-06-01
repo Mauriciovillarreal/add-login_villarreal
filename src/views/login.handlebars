@@ -1,11 +1,31 @@
-<main class="container login">
-    <h1 class="text-center">Login</h1>
-    <form action="/api/session/login" method="POST">
-        <label>Email</label>
-        <input type="email" name="email" class="form-control">
-        <label>Password</label>
-        <input type="password" name="password" class="form-control">
+<main class="mainLogin">
+    <div class="bg">
+        <div class="login">
+            <form action="/api/sessions/login" method="POST">
+                <div class="logoDist">
+                    <h1 class="text-center">4444</h1>
+                </div>
+                <p>Sign in to your account </p>
+                <div>Email</div>
+                <input type="email" name="email" class="control">
+                <div>Password</div>
+                <input type="password" name="password" class="control">
 
-        <button type="submit" class="btn btn-secondary btn-sm bg-black col btnAdd">Login</button>
-    </form>
+                <p>Don't have an account? <a href="/register">Sign Up</a></p>
+
+              
+                <button type="submit" class="btnLogin">LOGIN</button>
+                {{#if error}}
+                <p class="error">{{error}}</p>
+                {{/if}}
+            
+
+                <div class="containerBtnGH">
+                    <a href="/api/sessions/github" class=" btnGitHub  ">
+                        <img src="/img/github.png" width="50px" alt="">
+                        Sign up with GitHub</a>
+                </div>
+            </form>
+        </div>
+    </div>
 </main>

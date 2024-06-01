@@ -1,22 +1,35 @@
-<main>
-    <h1>Cart</h1>
+<main class="container">
+  <div class="cartContainer">
+    <h5 class="text-center">Shopping Cart</h5>
     {{#each carts}}
-    <div class="cart"> 
+    <div class="cart">
+      <div class="cartProducts">
+
         <h3>Carrito ID: {{this._id}}</h3>
         <hr>
-        <ul>
-            {{#each this.products}}
-            <li class="product"> 
+        <div class="detailCart">
+          {{#each this.products}}
+          <div>
+            <img src="{{this.product.thumbnails}}" width="80px" alt="">
+          </div>
+          <div>
+            <ul>
+              <li class="product">
                 <span class="name">{{this.product.brands}} - {{this.product.name}}</span> <br>
                 Quantity: <span class="quantity">{{this.quantity}}</span> <br>
                 Price: $<span class="price">{{this.product.price}}</span> <br>
-            </li>
-            <hr>
-            {{/each}}
-        </ul>
-        <h2>Total: <span id="totalPrice" class="total"></span></h2>
+              </li>
+              <hr>
+            </ul>
+          </div>
+          {{/each}}
+
+        </div>
+      </div>
+      <h2>Total: <span id="totalPrice" class="total"></span></h2>
     </div>
     {{/each}}
+  </div>
 </main>
 
 <script src="/socket.io/socket.io.js"></script>

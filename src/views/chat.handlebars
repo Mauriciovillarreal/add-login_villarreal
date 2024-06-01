@@ -1,11 +1,11 @@
 <main class="container">
-    <h1 class="text-center">Chat</h1>
-    <div class="container containerChat">
-        <ul id="messages" class="chat-list"></ul>
-        <form id="messageForm" class="message-form">
+    <h1 class="text-start h6">Chat</h1>
+        <hr>
+    <div class=" containerChat">
+        <ul id="messages"></ul>
+        <form id="messageForm" class="message-form ">
             <div class="email-container">
-                <input id="email" type="email" value="{{user.email}}" required placeholder="Enter your email"
-                    autocomplete="off" style="display: none;" />
+                <input id="email" type="email" value="{{user.email}}" placeholder="Enter your email" autocomplete="off">
             </div>
             <div class="message-input-container">
                 <input id="m" autocomplete="off" placeholder="Enter your message" class="message-input" />

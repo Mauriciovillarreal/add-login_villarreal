@@ -1,0 +1,13 @@
+.cartContainer {
+    padding-top: 28px;
+}
+
+.cartProducts {
+    height: 70vh;
+    overflow-y: scroll;
+}
+
+.detailCart {
+    display: grid;
+    grid-template-columns: 10% 90%;
+}

@@ -5,11 +5,13 @@ const Handlebars = require('handlebars')
 const cookieParser = require('cookie-parser')
 const session = require('express-session')
 const MongoStore = require ('connect-mongo')
+const passport = require('passport')
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const { Server } = require('socket.io')
 const { connectDB } = require('./config/index.js')
 const { productsModel } = require('./models/products.model.js')
 const { chatsModel } = require('./models/chat.model.js')
+const { initPassport } = require('./config/passport.config.js')
 
 const path = require('path')
 
@@ -27,7 +29,10 @@ connectDB()
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.engine('handlebars', handlebars.engine({
-    handlebars: allowInsecurePrototypeAccess(Handlebars)
+    handlebars: allowInsecurePrototypeAccess(Handlebars),
+    defaultLayout: 'main',
+    layoutsDir: path.join(__dirname, '../src/views/layouts'),
+    partialsDir: path.join(__dirname, '../src/views')
 }))
 app.set('view engine', 'handlebars')
 app.set('views', path.join(__dirname, '../src/views'))
@@ -47,11 +52,14 @@ app.use(session({
     resave: true,
     saveUninitialized: true
 }))
+initPassport()
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use('/', require('./routes/views.routes'))
 app.use('/api/products', require('./routes/api/products.route.js'))
 app.use('/api/carts', require('./routes/api/carts.routes.js'))
-app.use('/api/session', require('./routes/api/session.routes.js') )
+app.use('/api/sessions', require('./routes/api/session.routes.js') )
 
 io.on('connection', async (socket) => {
     console.log('New user connected')
@@ -87,9 +95,6 @@ io.on('connection', async (socket) => {
         }
     })
 
-    socket.on('disconnect', () => {
-        console.log('User disconnected')
-    })
 
     socket.on('chat message', async (msg) => {
         console.log('message:', msg)
@@ -100,5 +105,9 @@ io.on('connection', async (socket) => {
         } catch (error) {
             console.error('Error occurred while saving message:', error)
         }
+    })
+
+    socket.on('disconnect', () => {
+        console.log('User disconnected')
     })
 })

@@ -14,8 +14,8 @@ class UsersManagerMongo {
         return this.model.findOne(filter)
     }
 
-    createUser = async (user) => {
-        const result = await this.model.create(user)
+    createUser = async (newUser) => {
+        const result = await this.model.create(newUser)
         return result
     }
 

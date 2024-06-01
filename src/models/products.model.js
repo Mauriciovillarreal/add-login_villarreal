@@ -20,3 +20,4 @@ const productsModel = model('products', productsSchema)
 module.exports = {
     productsModel
 }
+
